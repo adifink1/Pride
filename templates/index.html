@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+קבוצת מנהיגות הארצית גאווה ומוגבלות של בית איזי שפירא גאה לאפשר לך גישה למידע על כל האירועים המונגשים בארץ במהלך חודש הגאווה. <br />
+המידע מתעדכן על ידי מארגני האירועים והוא באחריותם בלבד. אם אינך רואה את שם ישובך, <br />
+מומלץ לפנות אל מי שמרכז.ת את הקהילה הגאה ביישוב שלך ולהמליץ לו למלא את השאלון. <br />
+למילוי השאלון למארגני.ות אירועי חודש בגאווה, יש לפנות ל 054-2203809 או pride.and.disability@gmail.com לקבלת הקישור.
+<p>
+    <h4>שם העיר</h4>
+    <form action="/" method="post">
+        <input type="text" name="city" id="city">
+        <input type="submit" class="btn-dark" value="חפש">
+    </form>
+</p>
+
+{% for d in data %}
+    <div class="container">    
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                עיר
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.city }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                תאריך המצעד
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.date }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                שעת המצעד
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.time }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                שם איש קשר
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.name }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                טלפון
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.phone }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                אימייל
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.email }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">הנגשת אירוע הפתיחה</div>
+            <div class="col-12 col-sm-6 col-md-8">
+                <ul>
+                    {% for a in d.cbOpening %}
+                    <li>
+                        {{ a }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% if d.cbOpeningSpecialArea %}
+                <div class="text-decoration-underline ps-xxl-2">יהיה מתחם מיוחד שיכלול:</div>  
+                <ul>
+                    {% for b in d.cbOpeningSpecialArea %}  
+                    <li>
+                        {{ b }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>   
+        </div>   
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                הערות על אירוע הפתיחה
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.opening_comments }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">מסלול המצעד</div>
+            <div class="col-12 col-sm-6 col-md-8">
+                <ul>
+                    {% for a in d.cbRoute %}
+                    <li>
+                        {{ a }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>    
+        </div> 
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">
+                הערות על מסלול המצעד
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+                {{ d.route_comments }}
+            </div>
+        </div>
+        <div class="row justify-content-start border-bottom">
+            <div class="col-6 col-md-4 fw-bolder">הנגשת אירוע הסיום של המצעד</div>
+            <div class="col-12 col-sm-6 col-md-8">
+                <ul>
+                    {% for a in d.cbClosing %}
+                    <li>
+                        {{ a }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% if d.cbClosingSpcialArea %}
+                <div class="text-decoration-underline ps-xxl-2">יהיה מתחם מיוחד שיכלול:</div>  
+                <ul>
+                    {% for b in d.cbClosingSpcialArea %}  
+                    <li>
+                        {{ b }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>   
+        </div> 
+    </div>
+{% endfor %}
+{% endblock %}
+

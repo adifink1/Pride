@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset = "utf-8" />
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js"></script>
+</head>
+<body onload="brython()">
+	<div class="text-lg-center">
+		<img src="Izzy.jpg" class="izzy-img ms-lg-5" />
+		<img src="PrideAndDisability.jpeg" class="pride-img" />
+		<form method="get">
+			<label for="city"><h5>בחר עיר:</h5></label><br/>
+			<select name="cities" id="cities">
+			  <option value="kfar-saba">כפר סבא</option>
+			  <option value="beer-sheva">באר שבע</option>
+			  <option value="jerusalem">ירושלים</option>
+			</select>
+			<br><br>
+			<input type="submit" value="Submit">
+		  </form>
+		<script type="text/python">
+			from browser import document
+			
+			document <= "Hello !"
+		</script>
+	</div>
+</body>
+</html>

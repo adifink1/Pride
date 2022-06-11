@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<form action="/add" method="POST">
+    <div class="container">
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">
+                עיר
+            </div>
+            <div class="col">
+                <input type="text" name="city" id="city">
+            </div>
+        </div>    
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">
+                תאריך המצעד
+            </div>
+            <div class="col">
+                <input type="date" name="date" id="date">
+            </div>
+        </div>   
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">
+                שעת המצעד
+            </div>
+            <div class="col">
+                <input type="time" name="time" id="time">
+            </div>
+        </div> 
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">
+                מקום התכנסות (תחילת המצעד)
+            </div>
+            <div class="col">
+                <input type="text" name="place" id="place">
+            </div>
+        </div>       
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">
+                שם אחראי נגישות
+            </div>
+            <div class="col">
+                <input type="text" name="name" id="name">
+            </div>
+        </div>
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">
+                טלפון
+            </div>
+            <div class="col">
+                <input type="text" name="phone" id="phone">
+            </div>
+        </div>
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">
+                אימייל
+            </div>
+            <div class="col">
+                <input type="text"name="email" id="email">
+            </div>
+        </div>
+        <div class="row text-right border-bottom py-1">
+            <div class="col align-text-top fw-bolder">
+                הנגשת אירוע הפתיחה (איזור ההתכנסות)
+            </div>
+            <div class="col-6 text-right">
+                <input type="checkbox" name="cbOpening" value="צמידים לפטור מתור בדוכנים">
+                <label for="cbOpeningArmlet">צמידים לפטור מתור בדוכנים</label><br />
+                <input type="checkbox" name="cbOpening" value="מקומות חניה לא.נשים עם תו נכה בסמוך לאזור ההתכנסות">
+                <label for="cbOpeningParking">מקומות חניה לא.נשים עם תו נכה בסמוך לאזור ההתכנסות</label><br />
+                <input type="checkbox" name="cbOpening" value="שירותים מונגשים עם שילוט ברור">
+                <label for="cbOpeningToilet">שירותים מונגשים עם שילוט ברור</label><br />
+                <div class="d-inline">
+                    <input type="checkbox" name="cbOpening" value="שלטים ברורים שחור/ לבן סביב מקומות חיוניים (שירותים, איזור עזרה ראשונה ועוד) לכבדות ראייה, א.נשים עם מגבלה שכלתי התפתחותית ועוד">
+                    <label for="cbOpeningSigns">שלטים ברורים שחור/ לבן סביב מקומות חיוניים (שירותים, איזור עזרה ראשונה ועוד) לכבדות ראייה, א.נשים עם מגבלה שכלתי התפתחותית ועוד</label><br />
+                </div>
+                <input type="checkbox" name="cbOpening" value="תמלול">
+                <label for="cbTranscription">תמלול</label><br />
+                <input type="checkbox" name="cbOpening" value="שפת סימנים">
+                <label for="cbOpeningSignLang">שפת סימנים</label><br />
+                <input type="checkbox" name="cbOpening" value="רמפה לבמה לאנשים עם קשיים בהליכה">
+                <label for="cbOpeningRamp">רמפה לבמה לאנשים עם קשיים בהליכה</label><br />
+                <input type="checkbox" name="cbOpening" value="צמידים לפטור מתור בדוכנים">
+                <label for="openingOther">אחר</label>
+                <input type="text" name="openingOther" id="openingOther"><br />
+                <label for="cbClosingSpecialArea" class="text-decoration-underline">מתחם מיוחד באירוע הפתיחה</label><br />  
+                <div class="col ps-3">
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="צוות מתנדבים לליווי אנשים עם מוגבלות">
+                    <label for="cbClosingSpecialAreaAssistants">צוות מתנדבים לליווי אנשים עם מוגבלות</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="שלטים ברורים אליו">
+                    <label for="cbClosingSpecialAreaSigns">שלטים ברורים אליו</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea"  value="מתחם תחום">
+                    <label for="cbClosingSpecialAreaLimit">מתחם תחום</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="מתחם שטוח וללא מכשול">
+                    <label for="cbClosingSpecialAreaObstacleFree">מתחם שטוח וללא מכשול</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="קרבה למסך עם התמלול/ מתורגמן שפת סימנים/ במה">
+                    <label for="cbClosingSpecialAreaVisionAids">קרבה למסך עם התמלול/ מתורגמן שפת סימנים/ במה</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="אוזניות או אמצעי אחר למי שזקוק לשקט יחסית">
+                    <label for="cbClosingSpecialAreaSoundSensitive">אוזניות או אמצעי אחר למי שזקוק לשקט יחסית</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="הצללה">
+                    <label for="cbClosingSpecialAreaShadow">הצללה</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="כיסאות או כריות">
+                    <label for="cbClosingSpecialAreaChairs">כיסאות או כריות</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="שירותים מונגשים במתחם או לידו">
+                    <label for="cbClosingSpecialAreaToilet">שירותים מונגשים במתחם או לידו</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="בקבוקי מים קטנים">
+                    <label for="cbClosingSpecialAreaWater">בקבוקי מים קטנים</label><br />
+                    <input type="checkbox" name="cbOpeningSpecialArea" value="אחר">
+                    <label for="cbClosingSpecialAreaOther">אחר</label>
+                    <input type="text" name="cbOpeningSpecialAreaOther"><br />
+                </div>              
+            </div>
+            <div class="col fw-bolder">הערות על אירוע הפתיחה</div>
+            <div class="col">
+                <input type="text" name="opening_comments" id="opening_comments"></div>
+        </div>
+        <div class="row text-right border-bottom py-1">
+            <div class="col align-text-top fw-bolder">הנגשת מסלול המצעד</div>
+            <div class="col-6 text-right">
+                <input type="checkbox" name="cbRoute" value="מפה מונגשת פשוטה של מסלול המצעד עם נקודות נגישות לאורך המצעד">
+                <label for="cbRouteMap">מפה מונגשת פשוטה של מסלול המצעד עם נקודות נגישות לאורך המצעד</label><br />
+                <input type="checkbox" name="cbRoute" value="הסעה מונגשת לאנשים עם מוגבלות עם קושי בהליכה מנקודת הפתיחה של המצעד ובחזרה לאזור החניה לאחר אירוע הסיום">
+                <label for="cbRouteTransportation">הסעה מונגשת לאנשים עם מוגבלות עם קושי בהליכה מנקודת הפתיחה של המצעד ובחזרה לאזור החניה לאחר אירוע הסיום</label><br />
+                <input type="checkbox" name="cbRoute" value="צוות מתנדבות לליווי א.נשים עם מוגבלות במהלך המצעד">
+                <label for="cbRouteAssistants">צוות מתנדבות לליווי א.נשים עם מוגבלות במהלך המצעד</label><br />
+                <input type="checkbox" name="cbRoute" value="שלטים ברורים שחור/ לבן סביב מקומות חיוניים (שירותים, איזור עזרה ראשונה ועוד) לכבדות ראייה, א.נשים עם מגבלה שכלתי התפתחותית ועוד">
+                <label for="cbRouteSignsRoute">שלטים ברורים שחור/ לבן סביב מקומות חיוניים (שירותים, איזור עזרה ראשונה ועוד) לכבדות ראייה, א.נשים עם מגבלה שכלתי התפתחותית ועוד</label><br />
+                <input type="checkbox" name="cbRoute" value="מסלול ללא מכשול (לא.נשים עם מגבלה פיזית/ עיוורים/ על כיסא גלגלים)">
+                <label for="cbRouteObstacleFree">מסלול ללא מכשול (לא.נשים עם מגבלה פיזית/ עיוורים/ על כיסא גלגלים)</label><br />
+                <input type="checkbox" name="cbRoute" value="שירותים מונגשים לאורך המסלול עם שילוט ברור">
+                <label for="cbRouteToilet">שירותים מונגשים לאורך המסלול עם שילוט ברור</label><br />
+                <label for="cbRouteOther">אחר</label>
+                <input type="text" name="routeOther" id="routeOther">
+            </div>
+            <div class="col fw-bolder">הערות על הנגשת מסלול המצעד</div>
+            <div class="col">
+                <input type="text" name="route_comments" id="route_comments">
+            </div>
+        </div>
+        <div class="row text-right border-bottom py-1">
+            <div class="col align-text-top fw-bolder">הנגשת אירוע הסיום</div>
+            <div class="col-6 text-right">
+
+                <input type="checkbox" name="cbClosing" value="צמידים לפטור מתור בדוכנים">
+                <label for="cbClosingArmlet">צמידים לפטור מתור בדוכנים</label><br />
+                <input type="checkbox" name="cbClosing" value="שלטים ברורים שחור/ לבן סביב מקומות חיוניים (שירותים, עזרה ראשונה ועוד) לכבדות ראייה, א.נשים עם מוגבלות שכלית התפתחותית ואחרים)">
+                <label for="cbClosingSigns">שלטים ברורים שחור/ לבן סביב מקומות חיוניים (שירותים, עזרה ראשונה ועוד) לכבדות ראייה, א.נשים עם מוגבלות שכלית התפתחותית ואחרים)</label><br />
+                <input type="checkbox" name="cbClosing" value="תמלול">
+                <label for="cbclosingTranscription">תמלול</label><br />
+                <input type="checkbox" name="cbClosing" value="שירותים מונגשים עם שילוט ברור">
+                <label for="cbClosingToilet">שירותים מונגשים עם שילוט ברור</label><br />
+                <input type="checkbox" name="cbClosing" value="רמפה לנואמים (במידת הצורך במידה לנואם קשיי הליכה)">
+                <label for="cbClosingRamp">רמפה לנואמים (במידת הצורך במידה לנואם קשיי הליכה)</label><br />
+                <input type="checkbox" name="cbClosing" value="מקומות חניה קרובים לאנשים עם תו נכה">
+                <label for="cbClosingParking">מקומות חניה קרובים לאנשים עם תו נכה</label><br />
+                <input type="checkbox" name="cbClosing" value="שפת סימנים">
+                <label for="cbClosingSignLang">שפת סימנים</label><br />
+                <label for="closingOther">אחר</label>
+                <input type="text" name="closingOther" id="closingOther"><br />
+                <label for="cbClosingSpcialArea" class="text-decoration-underline">מתחם מיוחד באירוע הסיום</label><br />  
+                <div style="padding-right: 2%;">
+                    <input type="checkbox" name="cbClosingSpcialArea" value="צוות מתנדבים לליווי אנשים עם מוגבלות">
+                    <label for="cbClosingSpcialAreaAssistants">צוות מתנדבים לליווי אנשים עם מוגבלות</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="שלטים ברורים אליו">
+                    <label for="cbClosingSpcialAreaSigns">שלטים ברורים אליו</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="מתחם תחום">
+                    <label for="cbClosingSpecialAreaLimit">מתחם תחום</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="מתחם שטוח וללא מכשול">
+                    <label for="cbClosingSpecialAreaObstacleFree">מתחם שטוח וללא מכשול</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="קרבה למסך עם התמלול/ מתורגמן שפת סימנים/ במה">
+                    <label for="cbClosingSpecialAreaVisionAids">קרבה למסך עם התמלול/ מתורגמן שפת סימנים/ במה</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="אוזניות או אמצעי אחר למי שזקוק לשקט יחסית">
+                    <label for="cbClosingSpecialAreaSoundSensitive">אוזניות או אמצעי אחר למי שזקוק לשקט יחסית</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="הצללה">
+                    <label for="cbClosingSpecialAreaShadow">הצללה</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="כיסאות או כריות">
+                    <label for="cbClosingSpecialAreaChairs">כיסאות או כריות</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="שירותים מונגשים במתחם או לידו">
+                    <label for="cbClosingSpecialAreaToilet">שירותים מונגשים במתחם או לידו</label><br />
+                    <input type="checkbox" name="cbClosingSpcialArea" value="בקבוקי מים קטנים">
+                    <label for="cbClosingSpecialAreaWater">בקבוקי מים קטנים</label><br />
+                    <label for="closingSpecialAreaOther">אחר</label>
+                    <input type="text" name="closingSpcialAreaOther" id="closingSpcialAreaOther"><br />
+                </div>
+            </div>
+            <div class="col fw-bolder">הערות על הנגשת אירוע הסיום</div>
+            <div class="col">
+                <input type="text" name="closing_comments" id="closing_comments">
+            </div>
+        </div>
+        <div class="row text-right border-bottom py-1">
+            <div class="col fw-bolder">אירועים נוספיים</div>
+            <div class="col">
+                <input type="text" name="other_events" id="other_events">
+            </div>
+        </div>  
+    </div>
+    <input type="submit" class="btn-dark m-4 p-2" value="שלח">
+</form>
+
+{% endblock %}
