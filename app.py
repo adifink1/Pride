@@ -3,8 +3,9 @@ from flask import Flask, redirect, render_template, request, redirect, url_for
 from pymongo import MongoClient
 
 app = Flask(__name__)
-uri = "mongodb+srv://cluster0.h7xfv.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority"
-client = MongoClient(uri)
+client = pymongo.MongoClient("mongodb+srv://dbUser:dbUser@cluster0.h7xfv.mongodb.net/?retryWrites=true&w=majority")
+db = client.pride
+collection = db.data
 
 db = client['Pride']
 collection = db['data']
