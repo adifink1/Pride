@@ -4,10 +4,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 uri = "mongodb+srv://cluster0.h7xfv.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority"
-client = MongoClient(uri,
-                     tls=True,
-                     tlsCertificateKeyFile='<path_to_certificate>',
-                     server_api=ServerApi('1'))
+client = MongoClient(uri)
 
 db = client['Pride']
 collection = db['data']
